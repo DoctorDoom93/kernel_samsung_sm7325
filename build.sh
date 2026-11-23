@@ -64,6 +64,8 @@ build_kernel() {
 
     mkdir -p "$OUT_DIR"
     make "${MAKE_ARGS[@]}" "$DEFCONFIG"
+    
+    make "${MAKE_ARGS[@]}" -j1 headers
 
     make "${MAKE_ARGS[@]}" -j"$(nproc)"
 
